@@ -1,5 +1,5 @@
 <?php
-// Pastikan halaman ini hanya dapat diakses dengan cara yang aman
+
 if (!defined('SECURE_ACCESS')) {
     die('Direct access not permitted');
 }
@@ -7,9 +7,9 @@ if (!defined('SECURE_ACCESS')) {
 $title = "Peminjaman Buku";
 include('templates/header.php');
 
-// Menangani proses form setelah disubmit
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Mendapatkan data dari form
+ 
     $book_name = trim($_POST['book_name']);
     $member_name = trim($_POST['member_name']);
     $borrow_date = trim($_POST['borrow_date']);
@@ -22,13 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $return_date = $borrow_date_obj->format('Y-m-d');
 
     // Koneksi ke database
-    $conn = new mysqli('localhost', 'root', '', 'mylibrary'); // Sesuaikan dengan kredensial database
-
+    $conn = new mysqli('localhost', 'root', '', 'mylibrary'); 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Query untuk menyimpan data ke tabel book_loans
     $sql = "INSERT INTO book_loans (book_name, member_name, borrow_date, return_date, description, quantity) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("sssssi", $book_name, $member_name, $borrow_date, $return_date, $description, $quantity);
@@ -62,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <h3 class="panel-title text-center">Peminjaman Buku</h3>
 
                 <form method="POST" action="" class="form-center">
-                    <!-- Nama Buku -->
+                
                     <div class="input-group mb-20">
                         <span class="input-group-text"><i class="fa-regular fa-book"></i></span>
                         <input
@@ -73,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             required>
                     </div>
 
-                    <!-- Nama Member -->
+                
                     <div class="input-group mb-20">
                         <span class="input-group-text"><i class="fa-regular fa-user"></i></span>
                         <input
@@ -84,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             required>
                     </div>
 
-                    <!-- Tanggal Peminjaman -->
+             
                     <div class="input-group mb-20">
                         <span class="input-group-text"><i class="fa-regular fa-calendar"></i></span>
                         <input
@@ -94,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             required>
                     </div>
 
-                    <!-- Keterangan -->
+                   
                     <div class="input-group mb-20">
                         <span class="input-group-text"><i class="fa-regular fa-comment"></i></span>
                         <select class="form-control" name="description">
@@ -103,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </select>
                     </div>
 
-                    <!-- Jumlah Buku -->
+                
                     <div class="input-group mb-20">
                         <span class="input-group-text"><i class="fa-regular fa-list"></i></span>
                         <input
@@ -121,10 +119,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 </div>
 
-<!-- Footer -->
+
 <?php include('templates/footer.php') ?>
 
-<!-- CSS untuk menengahkan form -->
+
 <style>
     .main-content {
         display: flex;

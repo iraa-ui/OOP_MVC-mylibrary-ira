@@ -1,5 +1,5 @@
 <?php
-// Pastikan halaman ini hanya dapat diakses dengan cara yang aman
+
 if (!defined('SECURE_ACCESS')) {
     die('Direct access not permitted');
 }
@@ -7,19 +7,18 @@ if (!defined('SECURE_ACCESS')) {
 $title = "Pengembalian Buku";
 include('templates/header.php');
 
-// Menangani proses form setelah disubmit
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $loan_id = (int)$_POST['loan_id'];
     $return_date = trim($_POST['return_date']);
 
-    // Koneksi ke database
+    
     $conn = new mysqli('localhost', 'root', '', 'mylibrary'); 
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Ambil data pinjaman berdasarkan ID
     $sql = "SELECT return_date FROM book_loans WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $loan_id);
@@ -35,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $late_days = max(0, $expected_return_date->diff($actual_return_date)->days);
         $fine = $late_days * 5000; // Rp 5.000 per hari keterlambatan
 
-        // Update data pengembalian di database
+       
         $update_sql = "UPDATE book_loans SET actual_return_date = ?, fine = ? WHERE id = ?";
         $update_stmt = $conn->prepare($update_sql);
         $update_stmt->bind_param("sii", $return_date, $fine, $loan_id);
@@ -92,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             required>
                     </div>
 
-                    <!-- Tanggal Pengembalian -->
+                   
                     <div class="input-group mb-20">
                         <span class="input-group-text"><i class="fa-regular fa-calendar"></i></span>
                         <input
@@ -109,10 +108,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 </div>
 
-<!-- Footer -->
+
 <?php include('templates/footer.php') ?>
 
-<!-- CSS untuk menengahkan form -->
 <style>
     .main-content {
         display: flex;

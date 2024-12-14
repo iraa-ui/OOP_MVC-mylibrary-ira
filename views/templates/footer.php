@@ -16,5 +16,10 @@
     <script src="assets/vendor/js/jquery.overlayScrollbars.min.js"></script>
     <script src="assets/vendor/js/bootstrap.bundle.min.js"></script> 
     <script src="assets/js/main.js"></script>
+    <!-- Menambahkan jQuery dan jQuery UI -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+
+
+    
 </body>
 </html>

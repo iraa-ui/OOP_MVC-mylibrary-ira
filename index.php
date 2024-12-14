@@ -26,6 +26,13 @@ if($uri == "/visitor"){
 if($uri == "/membership"){
     return require 'controllers/MembershipController.php';
 }
+if($uri == "/peminjaman"){
+    return require 'controllers/PeminjamanController.php';
+}
+if($uri == "/pengembalian"){
+    return require 'controllers/PengembalianController.php';
+}
+
 
 
 return require 'views/notFoundPage.php';

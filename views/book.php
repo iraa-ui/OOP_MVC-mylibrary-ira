@@ -23,14 +23,14 @@ if (!defined('SECURE_ACCESS')) {
         /* Body */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
+            background-color: #f0f0f0; /* Latar belakang abu-abu terang */
             color: #333;
             padding: 20px;
         }
 
         /* Hero Section */
         .hero {
-            background: #004e92;
+            background: #6c757d; /* Warna abu-abu gelap */
             color: #fff;
             padding: 50px 20px;
             text-align: center;
@@ -49,7 +49,7 @@ if (!defined('SECURE_ACCESS')) {
 
         .btn-explore {
             background-color: #ffc107;
-            color: #004e92;
+            color: #6c757d; /* Warna abu-abu untuk teks */
             border: none;
             padding: 8px 16px;
             font-weight: 600;
@@ -77,7 +77,7 @@ if (!defined('SECURE_ACCESS')) {
 
         .btn-outline-success {
             background-color: #ffc107;
-            color: #004e92;
+            color: #6c757d; /* Warna abu-abu */
             border: none;
             padding: 8px 16px;
             border-radius: 0 5px 5px 0;
@@ -103,7 +103,7 @@ if (!defined('SECURE_ACCESS')) {
         }
 
         table thead {
-            background-color: #004e92;
+            background-color: #6c757d; /* Warna abu-abu gelap */
             color: #fff;
         }
 
@@ -127,8 +127,8 @@ if (!defined('SECURE_ACCESS')) {
 
         /* Footer */
         .footer {
-            background-color: #333;
-            color: #fff;
+            background-color: #6c757d; /* Warna abu-abu gelap */
+            color: white;
             padding: 10px;
             text-align: center;
             font-size: 0.85rem;
@@ -136,7 +136,7 @@ if (!defined('SECURE_ACCESS')) {
         }
 
         h1 {
-            color: #004e92;
+            color: #6c757d; /* Gunakan warna abu-abu untuk teks judul */
             font-size: 2rem;
             margin-bottom: 20px;
         }
@@ -188,7 +188,10 @@ if (!defined('SECURE_ACCESS')) {
     </table>
 </div>
 
-<?php include('views/templates/footer.php')?>
+<!-- Footer -->
+<div class="footer">
+    &copy; 2024 Mario's Corner
+</div>
 
 </body>
 </html>

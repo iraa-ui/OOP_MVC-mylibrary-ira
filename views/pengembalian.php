@@ -10,7 +10,6 @@ include('templates/header.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require_once('models/Return.php');  
-
     $loan_id = (int)$_POST['loan_id'];
     $return_date = trim($_POST['return_date']);
 
@@ -18,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $pengembalianModel = new PengembalianModel();
     $result = $pengembalianModel->prosesPengembalian($loan_id, $return_date);
 
-   
+    
     if ($result['success']) {
         echo "<div class='alert alert-success text-center'>";
         echo $result['message'];
@@ -29,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "</div>";
     }
 
-   
+ 
     $pengembalianModel->closeConnection();
 }
 ?>
@@ -48,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <h3 class="panel-title text-center">Pengembalian Buku</h3>
 
                 <form method="POST" action="" class="form-center">
-                   
+                    <!-- ID Pinjaman -->
                     <div class="input-group mb-20">
                         <span class="input-group-text"><i class="fa-regular fa-id-card"></i></span>
                         <input
@@ -75,7 +74,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
     </div>
 </div>
-
 
 <?php include('templates/footer.php') ?>
 
